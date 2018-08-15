@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+.Title {
+    font-size: 40px;
+    color: red;
+    font-family: 'Roboto Slab', serif;
+}
+
+.TaskNumber {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}

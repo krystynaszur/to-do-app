@@ -1,0 +1,11 @@
+.TodoApp {
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 98vw;
+    height: 95vh;
+}
