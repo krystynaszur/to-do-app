@@ -3,7 +3,8 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title.js';
 import TodoList from '../components/TodoList.js';
-import Todo from '../components/Todo.js';
+import TodoForm from '../components/TodoForm.js';
+//import Todo from '../components/Todo.js';
 import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
@@ -26,30 +27,33 @@ class App extends React.Component {
             }]
         };
         this.removeTodo = this.removeTodo.bind(this);
+        this.addTodo = this.addTodo.bind(this);
     }
-    addTodo(val) {
+    addTodo(val, event) {
+        event.preventDefault();
         const todo = {
             text: val,
             id: uuid.v4(),
         };
-        const data = [...this.state.data, todo];
-        this.setState({ data });
+        const newdata = [...this.state.data, todo];
+        this.setState({ data: newdata });
+        console.log("Is it working?");
     }
     removeTodo(id) {
-       console.log("it is not easy");
-       const remainder = this.state.data.filter(todo => todo.id !== id);
-       this.setState({ data: remainder });
+        console.log("it is not easy");
+        const remainder = this.state.data.filter(todo => todo.id !== id);
+        this.setState({ data: remainder });
     }
 
     render() {
         return (
             <div className={style.TodoApp}>
                 <Title title="My awesome list of things to do" taskNumber={this.state.data.length} />
-             
-              <TodoList tasks= {this.state.data} remove= {this.removeTodo}/>
+
+                <TodoList tasks={this.state.data} remove={this.removeTodo} />
+                <TodoForm handleSubmit={this.addTodo} />
             </div>
         );
     }
 }
- /*  <TodoList tasks= {this.state.data} remove={() => this.removeTodo(this.state.data[1].id)}/> */
- export default hot(module)(App);
+export default hot(module)(App);

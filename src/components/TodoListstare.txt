@@ -8,7 +8,9 @@ const TodoList = props => (
     <div className={style.TodoList}>
         {
             props.tasks.map((element) => (
-                <Todo id={element.id} text={element.text} remove={props.remove}/>
+                <li className={style.listItem} onClick = {() => props.remove(element.id)}>
+                    {element.text}
+                </li>
             ))
         }
     </div>
