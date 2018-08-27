@@ -1,0 +1,15 @@
+.listItem {
+    height: 200px;
+    width: 200px;
+    background-color: #10ac84;
+    margin: 10px;
+    text-align: center;
+    padding: 30px 10px 10px 10px;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 26px;
+}
+
+.listItem:hover {
+    cursor: pointer;
+    background-color: #ff6b6b;
+}

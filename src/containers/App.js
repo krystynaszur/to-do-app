@@ -29,10 +29,9 @@ class App extends React.Component {
         this.removeTodo = this.removeTodo.bind(this);
         this.addTodo = this.addTodo.bind(this);
     }
-    addTodo(val, event) {
-        event.preventDefault();
+    addTodo(task) {
         const todo = {
-            text: val,
+            text: task,
             id: uuid.v4(),
         };
         const newdata = [...this.state.data, todo];
@@ -49,9 +48,8 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title title="My awesome list of things to do" taskNumber={this.state.data.length} />
-
                 <TodoList tasks={this.state.data} remove={this.removeTodo} />
-                <TodoForm handleSubmit={this.addTodo} />
+                <TodoForm handleSubmit={task => this.addTodo(task)}/>
             </div>
         );
     }
